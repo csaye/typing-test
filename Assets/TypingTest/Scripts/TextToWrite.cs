@@ -6,7 +6,15 @@ namespace TypingTest
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class TextToWrite : MonoBehaviour
     {
-        [SerializeField] private string[] words = new string[1000];
+        public string text
+        {
+            get
+            {
+                return textField.text;
+            }
+        }
+
+        private string[] words = new string[1000];
 
         private TextMeshProUGUI textField;
 
