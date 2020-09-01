@@ -31,5 +31,10 @@ namespace TypingTest
         {
             inputField = GetComponent<TMP_InputField>();
         }
+
+        public void CheckScroll()
+        {
+            Debug.Log(inputField.caretPosition);
+        }
     }
 }

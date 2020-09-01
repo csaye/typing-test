@@ -52,15 +52,17 @@ namespace TypingTest
 
             while (charsAdded < charsToLine)
             {
-                charsAdded += PrintWord();
+                string word = GetRandomWord();
+                charsAdded += word.Length;
+                if (charsAdded <= charsToLine) PrintWord(word);
             }
+
+            textField.text += "\n";
         }
 
-        private int PrintWord()
+        private void PrintWord(string word)
         {
-            string newWord = $"{GetRandomWord()} ";
-            textField.text += newWord;
-            return newWord.Length;
+            textField.text += $"{word} ";
         }
     }
 }

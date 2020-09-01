@@ -21,10 +21,17 @@ namespace TypingTest
 
         private int seconds;
 
+        private bool countdownStarted;
+
         private void Start()
         {
             textField = GetComponent<TextMeshProUGUI>();
+        }
 
+        public void CheckStartCountdown()
+        {
+            if (countdownStarted) return;
+            countdownStarted = true;
             StartCountdown();
         }
 
