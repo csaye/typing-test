@@ -56,7 +56,6 @@ namespace TypingTest
             }
         }
 
-        // Returns length added to text field
         private int PrintWord()
         {
             string newWord = $"{GetRandomWord()} ";
