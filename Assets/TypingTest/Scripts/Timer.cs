@@ -7,6 +7,14 @@ namespace TypingTest
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class Timer : MonoBehaviour
     {
+        public int elapsedSeconds
+        {
+            get
+            {
+                return 60 - seconds;
+            }
+        }
+
         private TextMeshProUGUI textField;
 
         private Coroutine countdown;
@@ -22,6 +30,8 @@ namespace TypingTest
 
         private void StartCountdown()
         {
+            seconds = 60;
+
             if (countdown != null)
             {
                 StopCoroutine(countdown);
@@ -32,6 +42,8 @@ namespace TypingTest
 
         private void StopCountdown()
         {
+            seconds = 0;
+
             if (countdown != null)
             {
                 StopCoroutine(countdown);
