@@ -7,7 +7,7 @@ namespace TypingTest
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class Timer : MonoBehaviour
     {
-        public int elapsedSeconds
+        public int secondsElapsed
         {
             get
             {
