@@ -19,7 +19,7 @@ namespace TypingTest
 
         public void UpdateDisplay()
         {
-            float fractionMinuteElapsed = (timer.secondsElapsed / 60.0f);
+            float fractionMinuteElapsed = (timer.seconds / 60.0f);
             if (fractionMinuteElapsed == 0) fractionMinuteElapsed = 1;
             int cpm = Mathf.FloorToInt(textInput.validChars / fractionMinuteElapsed);
             textField.text = $"CPM: {cpm.ToString()}";

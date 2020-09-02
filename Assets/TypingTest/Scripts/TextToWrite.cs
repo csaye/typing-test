@@ -18,7 +18,7 @@ namespace TypingTest
 
         private TextMeshProUGUI textField;
 
-        private const int initialTextLines = 8;
+        private const int initialTextLines = 7;
         private const int charsToLine = 30;
 
         private void Start()
@@ -54,10 +54,8 @@ namespace TypingTest
             {
                 string word = GetRandomWord();
                 charsAdded += word.Length;
-                if (charsAdded <= charsToLine) PrintWord(word);
+                PrintWord(word);
             }
-
-            textField.text += "\n";
         }
 
         private void PrintWord(string word)

@@ -8,6 +8,7 @@ namespace TypingTest
     {
         [Header("References")]
         [SerializeField] private ErrorText errorText = null;
+        [SerializeField] private TextToWrite textToWrite = null;
 
         public string text
         {
@@ -32,9 +33,9 @@ namespace TypingTest
             inputField = GetComponent<TMP_InputField>();
         }
 
-        public void CheckScroll()
+        public void CheckDone()
         {
-            Debug.Log(inputField.caretPosition);
+
         }
     }
 }

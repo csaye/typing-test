@@ -7,61 +7,54 @@ namespace TypingTest
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class Timer : MonoBehaviour
     {
-        public int secondsElapsed
-        {
-            get
-            {
-                return 60 - seconds;
-            }
-        }
+        public int seconds {get; private set;}
+
+        public bool finished {get; set;} = false;
 
         private TextMeshProUGUI textField;
 
-        private Coroutine countdown;
+        private Coroutine countCoroutine;
 
-        private int seconds;
-
-        private bool countdownStarted;
+        private bool countStarted;
 
         private void Start()
         {
             textField = GetComponent<TextMeshProUGUI>();
         }
 
-        public void CheckStartCountdown()
+        public void TryStartCount()
         {
-            if (countdownStarted) return;
-            countdownStarted = true;
-            StartCountdown();
+            if (countStarted) return;
+            countStarted = true;
+            StartCount();
         }
 
-        private void StartCountdown()
+        private void StartCount()
         {
-            seconds = 60;
-
-            if (countdown != null)
+            if (countCoroutine != null)
             {
-                StopCoroutine(countdown);
+                StopCoroutine(countCoroutine);
             }
 
-            countdown = StartCoroutine(Countdown());
+            countCoroutine = StartCoroutine(Count());
         }
 
-        private void StopCountdown()
+        private void StopCount()
         {
             seconds = 0;
 
-            if (countdown != null)
+            if (countCoroutine != null)
             {
-                StopCoroutine(countdown);
+                StopCoroutine(countCoroutine);
             }
         }
 
-        private IEnumerator Countdown()
+        private IEnumerator Count()
         {
-            for (int i = 60; i > 0; i--)
+            while (!finished)
             {
-                seconds = i;
+                if (finished) break;
+                seconds++;
                 UpdateTextField();
                 yield return new WaitForSeconds(1);
             }
