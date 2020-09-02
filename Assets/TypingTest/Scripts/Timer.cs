@@ -9,6 +9,7 @@ namespace TypingTest
     {
         [Header("References")]
         [SerializeField] private TextInput textInput = null;
+        [SerializeField] private PBDisplay timePBDisplay = null;
 
         public int seconds {get; private set;}
 
@@ -64,6 +65,11 @@ namespace TypingTest
         private void UpdateTextField()
         {
             textField.text = seconds.ToString();
+        }
+
+        public void UpdatePBDisplay()
+        {
+            timePBDisplay.UpdateDisplay(seconds, false);
         }
     }
 }

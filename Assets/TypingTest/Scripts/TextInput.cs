@@ -9,6 +9,9 @@ namespace TypingTest
         [Header("References")]
         [SerializeField] private ErrorText errorText = null;
         [SerializeField] private TextToWrite textToWrite = null;
+        [SerializeField] private CPMDisplay cpmDisplay = null;
+        [SerializeField] private Timer timer = null;
+        [SerializeField] private WPMDisplay wpmDisplay = null;
 
         public bool finished {get; private set;} = false;
 
@@ -40,8 +43,16 @@ namespace TypingTest
             if (text == textToWrite.text)
             {
                 finished = true;
+                UpdateBestDisplay();
                 inputField.interactable = false;
             }
+        }
+
+        private void UpdateBestDisplay()
+        {
+            cpmDisplay.UpdatePBDisplay();
+            timer.UpdatePBDisplay();
+            wpmDisplay.UpdatePBDisplay();
         }
     }
 }

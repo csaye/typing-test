@@ -30,7 +30,6 @@ namespace TypingTest
             textField = GetComponent<TextMeshProUGUI>();
 
             InitializeWords();
-
             PrintLines();
         }
 

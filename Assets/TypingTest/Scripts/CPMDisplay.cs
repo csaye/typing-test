@@ -9,6 +9,9 @@ namespace TypingTest
         [Header("References")]
         [SerializeField] private Timer timer = null;
         [SerializeField] private TextInput textInput = null;
+        [SerializeField] private PBDisplay cpmPBDisplay = null;
+
+        private int cpm = 0;
 
         private TextMeshProUGUI textField;
 
@@ -21,8 +24,13 @@ namespace TypingTest
         {
             float fractionMinuteElapsed = (timer.seconds / 60.0f);
             if (fractionMinuteElapsed == 0) fractionMinuteElapsed = 1;
-            int cpm = Mathf.FloorToInt(textInput.validChars / fractionMinuteElapsed);
+            cpm = Mathf.FloorToInt(textInput.validChars / fractionMinuteElapsed);
             textField.text = $"CPM: {cpm.ToString()}";
+        }
+
+        public void UpdatePBDisplay()
+        {
+            cpmPBDisplay.UpdateDisplay(cpm, true);
         }
     }
 }
