@@ -588,6 +588,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 168763422}
+        m_MethodName: CheckFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -619,6 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   errorText: {fileID: 1025263385}
+  textToWrite: {fileID: 1999440780}
 --- !u!222 &168763423
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1971,3 +1983,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f18db9302504eba87dd9e765e37f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textInput: {fileID: 168763422}

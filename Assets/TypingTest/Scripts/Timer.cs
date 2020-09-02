@@ -7,9 +7,10 @@ namespace TypingTest
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class Timer : MonoBehaviour
     {
-        public int seconds {get; private set;}
+        [Header("References")]
+        [SerializeField] private TextInput textInput = null;
 
-        public bool finished {get; set;} = false;
+        public int seconds {get; private set;}
 
         private TextMeshProUGUI textField;
 
@@ -51,9 +52,9 @@ namespace TypingTest
 
         private IEnumerator Count()
         {
-            while (!finished)
+            while (!textInput.finished)
             {
-                if (finished) break;
+                if (textInput.finished) break;
                 seconds++;
                 UpdateTextField();
                 yield return new WaitForSeconds(1);

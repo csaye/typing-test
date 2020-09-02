@@ -10,6 +10,8 @@ namespace TypingTest
         [SerializeField] private ErrorText errorText = null;
         [SerializeField] private TextToWrite textToWrite = null;
 
+        public bool finished {get; private set;} = false;
+
         public string text
         {
             get
@@ -33,9 +35,13 @@ namespace TypingTest
             inputField = GetComponent<TMP_InputField>();
         }
 
-        public void CheckDone()
+        public void CheckFinished()
         {
-
+            if (text == textToWrite.text)
+            {
+                finished = true;
+                inputField.interactable = false;
+            }
         }
     }
 }

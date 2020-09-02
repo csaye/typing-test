@@ -12,13 +12,17 @@ namespace TypingTest
             {
                 return textField.text;
             }
+            private set
+            {
+                textField.text = value;
+            }
         }
 
         private string[] words = new string[1000];
 
         private TextMeshProUGUI textField;
 
-        private const int initialTextLines = 7;
+        private const int totalLines = 8;
         private const int charsToLine = 30;
 
         private void Start()
@@ -27,10 +31,7 @@ namespace TypingTest
 
             InitializeWords();
 
-            for (int i = 0; i < initialTextLines; i++)
-            {
-                PrintLine();
-            }
+            PrintLines();
         }
 
         private void InitializeWords()
@@ -46,21 +47,26 @@ namespace TypingTest
             return words[randomIndex];
         }
 
-        private void PrintLine()
+        private void PrintLines()
         {
-            int charsAdded = 0;
-
-            while (charsAdded < charsToLine)
+            while (text.Length < charsToLine * totalLines)
             {
-                string word = GetRandomWord();
-                charsAdded += word.Length;
-                PrintWord(word);
+                PrintWord();
             }
         }
 
-        private void PrintWord(string word)
+        private void PrintWord()
         {
-            textField.text += $"{word} ";
+            string word = GetRandomWord();
+
+            if (text == "")
+            {
+                text += word;
+            }
+            else
+            {
+                text += $" {word}";
+            }
         }
     }
 }
